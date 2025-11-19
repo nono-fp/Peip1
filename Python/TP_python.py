@@ -1,7 +1,10 @@
+# -*- coding: utf-8 -*-
  # -*- coding: utf-8 -*-
 import random
 import numpy as np
 import matplotlib.pyplot as plt
+
+from scipy.stats import linregress
 from math import *
 
 
@@ -44,7 +47,7 @@ def tri_bulle(tab):
                 echange = True
     return tab
     
-"""EXERCICE 5"""
+"""EXERCICE 4"""
 
 def f(x):
     return x**3-x**2
@@ -52,10 +55,18 @@ def f(x):
 a = 0
 b = 1
 n = 100
-x = np.linspace(a,b,n+1)
+x = (b-a)/n
 
 
-"""EXERCICE 6"""
+
+
+inte = 0
+for i in range(n):
+    inte= inte+x*f(i)
+print (inte)
+
+
+"""EXERCICE 5"""
 
 
 #1
@@ -85,6 +96,51 @@ plt.plot(x,fonction4, 'P-',color ="mediumorchid")
 
 plt.legend(["Pas là","envie de pioncer","flemme"])
 
+
+
+"""EXERCICE 6 """
+
+
+M = np.loadtxt('C:\\Users\\nfaivre\\Downloads\\mesures.txt',delimiter = ',', skiprows = 1)
+U = M[:,0]
+I = M[:,1]
+
+plt.plot (I,U, 'o',color = 'red')
+
+result = linregress(I,U)
+print(result)
+plt.plot(I,result[0]*I + result[1])
+
+
+plt.xlabel("I en A")
+plt.ylabel("U en V")
+plt.title("Fichier Peip 1")
+
+error = np.abs(U - (result[0]*I+result[1]))
+ecM = np.max(error)
+
+plt.errorbar(I,U, yerr = error)
+
+
+"""EXERCICE 7"""
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import fsolve
+
+
+#1
+x = np.linspace(0,np.pi,30)
+
+plt.plot(x,np.cos(x))
+plt.plot(x,x*x)
+
+def f(x):
+    return np.cos(x)-x**2
+start = 0.5
+solution = fsolve(f,start)
+print(solution)
+plt.plot(solution,solution**2 ,"o",color ="red")
+ 
 
 
 
