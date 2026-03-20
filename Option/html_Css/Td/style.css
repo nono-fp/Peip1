@@ -1,0 +1,35 @@
+body{
+	background-color : #A4B5E0 ;
+}
+a{
+	color : purple;
+}
+
+h1{
+	color : #960438;
+}
+
+h2,h3,h4,h5,h6{
+	color : #960438;
+	margin-left : 25px;
+}
+
+p{
+	background-color : #E5E48F;
+}
+a:hover{
+	color : red;
+}
+img{
+	width : 384px;
+	height : 256 px;
+	margin-left : 5%;
+	border : 2px solid black
+	
+}
+nav{
+	margin-bottom : 5px;
+	width : 125 px;
+	background-color :  #F0D793;
+	border : 2px solid red;
+}
